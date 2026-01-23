@@ -3,75 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <title>Hoodie Payment</title>
+
+  <!-- IMPORTANT for mobile responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #111;
       color: #fff;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
     .card {
       background: #1c1c1c;
-      padding: 25px;
-      border-radius: 12px;
-      width: 320px;
+      padding: 24px;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 360px;   /* responsive width */
       text-align: center;
       box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
 
     h2 {
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      font-size: 22px;
     }
 
     .price {
-      font-size: 24px;
+      font-size: 26px;
       color: #00ff99;
-      margin: 10px 0;
+      margin: 12px 0;
     }
 
     button {
       background: #00ff99;
       color: #000;
       border: none;
-      padding: 12px;
+      padding: 14px;
       width: 100%;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      margin-top: 15px;
+      margin-top: 16px;
     }
 
-    button:hover {
-      opacity: 0.9;
+    button:active {
+      transform: scale(0.98);
     }
 
     .note {
-      font-size: 12px;
+      font-size: 13px;
       color: #aaa;
-      margin-top: 10px;
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
+    /* Extra small devices */
+    @media (max-width: 360px) {
+      h2 {
+        font-size: 20px;
+      }
+
+      .price {
+        font-size: 24px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="card">
-  <h2>Premium Hoodie</h2>
-  <p class="price">₹1299</p>
+  <div class="card">
+    <h2>Premium Hoodie</h2>
+    <p class="price">₹1299</p>
 
-  <button onclick="payNow()">Pay via UPI</button>
+    <button onclick="payNow()">Pay via UPI</button>
 
-  <p class="note">
-    After payment, click the button and send screenshot via WhatsApp
-  </p>
-</div>
+    <p class="note">
+      After payment, click the button and send screenshot via WhatsApp
+    </p>
+  </div>
 
 <script>
 function payNow() {
-  const upiLink = "upi://pay?pa=risalrichu01@oksbi&pn=HoodieStore&am=1299&cu=INR";
+  const upiLink =
+    "upi://pay?pa=risalrichu01@oksbi&pn=LUXE&am=1299&cu=INR";
 
   window.location.href = upiLink;
 
