@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoodie Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #1c1c1c;
+      padding: 25px;
+      border-radius: 12px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #00ff99;
+      margin: 10px 0;
+    }
+
+    button {
+      background: #00ff99;
+      color: #000;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Premium Hoodie</h2>
+  <p class="price">₹1299</p>
+
+  <button onclick="payNow()">Pay via UPI</button>
+
+  <p class="note">
+    After payment, click the button and send screenshot via WhatsApp
+  </p>
+</div>
+
+<script>
+function payNow() {
+  const upiLink = "upi://pay?pa=risalrichu01@oksbi&pn=HoodieStore&am=1299&cu=INR";
+
+  window.location.href = upiLink;
+
+  setTimeout(() => {
+    alert("If UPI app didn't open, please scan the QR code below.");
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
